@@ -192,7 +192,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 484873954}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fb0e66f3160d58468a0fa22d17e7861, type: 3}
   m_Name: 
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 596945486}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fb0e66f3160d58468a0fa22d17e7861, type: 3}
   m_Name: 
@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 1452710765}
   - component: {fileID: 1452710764}
   - component: {fileID: 1452710763}
+  - component: {fileID: 1452710767}
   - component: {fileID: 1452710768}
   m_Layer: 0
   m_Name: Plane
@@ -373,6 +374,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1452710767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1452710762}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4271779d51ba0d742b43f7288082ecfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1452710768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +393,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1452710762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a08d6113a50dd47a0437904c93c829, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b9fff6611858434094098b50c705597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1678368005
