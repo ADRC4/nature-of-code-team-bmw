@@ -111,8 +111,8 @@ public class MouseTracking : MonoBehaviour
             }
         }
 
-        GameObject.Find("Triangle").transform.position = new Vector3(location.x, location.y, -5.0f);//三角位置
-        float rot = Vector3.Angle(velocity, Vector3.up);//旋转角度
+        GameObject.Find("Triangle").transform.position = new Vector3(location.x, location.y, -5.0f);
+        float rot = Vector3.Angle(velocity, Vector3.up);
         //when velocity is in first, forth  quadrants, the culculation of angle is not clockwise, min angle. 2pi-rot
         GameObject.Find("Triangle").transform.rotation = Quaternion.AngleAxis(velocity.x < 0 ? rot : (2 * Mathf.PI - rot), Vector3.forward);//计算三角形的旋转角度
         //Debug.Log(velocity  +" "+Vector3.Angle(velocity, Vector3.right));
