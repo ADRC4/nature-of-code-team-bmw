@@ -204,7 +204,7 @@ public class MouseTracking : MonoBehaviour
                 }
             }
 
-            //一些debug图形的位置设置
+     
             GameObject.Find("Circle" + k).transform.position = new Vector3(normal.x, normal.y, -2.5f);
             var bli = normal + pred * 0.4f;
             GameObject.Find("Bling" + k).transform.position = new Vector3(bli.x, bli.y, -2.5f);
@@ -216,9 +216,9 @@ public class MouseTracking : MonoBehaviour
             lr.SetPosition(1, new Vector3(predictLoc.x, predictLoc.y, -2.5f));
             lr.SetPosition(2, new Vector3(normal.x, normal.y, -2.5f));
 
-            GameObject.Find("Triangle" + k).transform.position = new Vector3(location[k].x, location[k].y, -2.0f);//三角位置
-            float rot = Vector3.Angle(velocity[k], Vector3.up);//旋转角度
-            //注意，velocity在第一、四象限时，角度计算不是以顺时针算的，是算最小角度，因此要2pi-rot
+            GameObject.Find("Triangle" + k).transform.position = new Vector3(location[k].x, location[k].y, -2.0f);
+            float rot = Vector3.Angle(velocity[k], Vector3.up);
+    
             GameObject.Find("Triangle" + k).transform.rotation = Quaternion.AngleAxis(velocity[k].x < 0 ? rot : (2 * Mathf.PI - rot), Vector3.forward);//计算三角形的旋转角度
             //Debug.Log(velocity  +" "+Vector3.Angle(velocity, Vector3.right));
 
@@ -226,20 +226,20 @@ public class MouseTracking : MonoBehaviour
 
             // Only if the distance is greater than the path's radius do we bother to steer
             var sp = GameObject.Find("Bling" + k).GetComponent<SpriteRenderer>();
-            if (worldRecord > 0.5f)//什么时候要调整小车的方向？就是小车到轨道外面去的时候，由于轨道粗1.0f，所以这里是一半
+            if (worldRecord > 0.5f)
             {
                 Seek(k, target);
             }
 
-            sp.color = worldRecord > 0.45f ? Color.red : Color.black;//是否是红色
+            sp.color = worldRecord > 0.45f ? Color.red : Color.black;
 
             velocity[k] += acceleration[k];//计算速度
-            velocity[k] = Vector3.ClampMagnitude(velocity[k], maxspeed[k]);//设置上限
+            velocity[k] = Vector3.ClampMagnitude(velocity[k], maxspeed[k]);//set the top
             location[k] += velocity[k];
             // Reset accelerationelertion to 0 each cycle
             acceleration[k] *= 0;
 
-            //边界重置
+            //reset the border
             if (predictLoc.x < left) location[k] = new Vector3(right, 0, location[k].z);
             //if (location.y < -r) location.y = height+r;
             if (predictLoc.x > right) location[k] = new Vector3(left, 0, location[k].z);
@@ -248,19 +248,19 @@ public class MouseTracking : MonoBehaviour
 
     // A method that calculates and applies a steering force towards a target
     // STEER = DESIRED MINUS VELOCITY
-    void Seek(int k, Vector3 target)//小车要调整方向了！
+    void Seek(int k, Vector3 target)
     {
         var desired = target - location[k];  // A vector pointing from the location to the target
 
         // If the magnitude of desired equals 0, skip out of here
         // (We could optimize this to check if x and y are 0 to avoid mag() square root
-        if (desired.magnitude < float.Epsilon) return;//都到了目标地点，不用走了
+        if (desired.magnitude < float.Epsilon) return;
 
         // Normalize desired and scale to maximum speed
         desired.Normalize();
         desired *= maxspeed[k];
         // Steering = Desired minus Velocity
-        Vector3 steer = desired - velocity[k];//老样子，拐过来
+        Vector3 steer = desired - velocity[k];
         steer = Vector3.ClampMagnitude(steer, maxforce[k]);  // Limit to maximum steering force
         acceleration[k] += steer;
     }
@@ -272,7 +272,7 @@ public class MouseTracking : MonoBehaviour
     //    path[2] = (new Vector3(Random.value * right, Random.value * 2.0f - 1f));
     //    path[3] = (new Vector3(right, 0));
 
-    //    //画轨道
+    //    
     //    {
     //        var borderObj = GameObject.Find("Line");
     //        var border = borderObj.GetComponent<LineRenderer>();
