@@ -114,13 +114,13 @@ public class MouseTracking : MonoBehaviour
         return sum;
     }
 
-    // 鼠标拖动
+   
     void OnMouseDrag ()
     {
         mouse = Camera.main.ScreenToWorldPoint (Input.mousePosition);
         mouse *= 10;
         mouse.z = 0;
-        //三角形到鼠标距离
+        //distance from vehicle to target
         var newobj = Instantiate (circle);
         newobj.name = "Circle#" + (objects.Count + 1);
         newobj.GetComponent<Renderer> ().enabled = true;
