@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseTracking : MonoBehaviour
 {
-    static float left = -6.0f; //边框的四个点
+    static float left = -6.0f; 
     static float right = 6.0f;
     static float up = 4.0f;
     static float down = -4.0f;
@@ -186,7 +186,7 @@ public class MouseTracking : MonoBehaviour
                 }
 
                 // How far away are we from the path?
-                float distance = Vector3.Distance(predictLoc, normalPoint);//算一下从向前看的点到轨道上法向交点的距离
+                float distance = Vector3.Distance(predictLoc, normalPoint);
 
                 // Did we beat the record and find the closest line segment?
                 if (distance < worldRecord)//SHORTEST DISTANCE
@@ -217,8 +217,8 @@ public class MouseTracking : MonoBehaviour
             lr.SetPosition(1, new Vector3(predictLoc.x, predictLoc.y, -2.5f));
             lr.SetPosition(2, new Vector3(normal.x, normal.y, -2.5f));
 
-            GameObject.Find("Triangle" + k).transform.position = new Vector3(location[k].x, location[k].y, -2.0f);//三角位置
-            float rot = Vector3.Angle(velocity[k], Vector3.up);//旋转角度
+            GameObject.Find("Triangle" + k).transform.position = new Vector3(location[k].x, location[k].y, -2.0f);
+            float rot = Vector3.Angle(velocity[k], Vector3.up);
            
             GameObject.Find("Triangle" + k).transform.rotation = Quaternion.AngleAxis(velocity[k].x < 0 ? rot : (2 * Mathf.PI - rot), Vector3.forward);//计算三角形的旋转角度
             //Debug.Log(velocity  +" "+Vector3.Angle(velocity, Vector3.right));
@@ -273,7 +273,7 @@ public class MouseTracking : MonoBehaviour
         path[2] = (new Vector3(Random.value * right, Random.value * 2.0f - 1f));
         path[3] = (new Vector3(right, 0));
 
-        //画轨道
+      
         {
             var borderObj = GameObject.Find("Line");
             var border = borderObj.GetComponent<LineRenderer>();
