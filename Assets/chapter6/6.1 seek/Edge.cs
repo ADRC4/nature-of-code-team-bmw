@@ -17,6 +17,7 @@ public class Edge : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         //UpdateOutline(true);
+
     }
 
     void OnDisable()
