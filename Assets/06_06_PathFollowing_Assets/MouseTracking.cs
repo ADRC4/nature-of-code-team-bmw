@@ -80,7 +80,7 @@ public class MouseTracking : MonoBehaviour
             borderObj.name = "Line";
             borderObj.transform.position = new Vector3(0, 0, -3f);
             var border = borderObj.AddComponent<LineRenderer>();
-            border.material = new Material(Shader.Find("Sprites/Default"));
+       
             border.startColor = Color.black;
             border.endColor = Color.black; 
             border.startWidth = 0.02f;
