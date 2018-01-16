@@ -66,9 +66,9 @@ public class MouseTracking : MonoBehaviour
                     border.endWidth = 0.02f;
                     border.positionCount = 3;
                     border.useWorldSpace = true;
-                    border.SetPosition(0, Vector3.zero);
-                    border.SetPosition(1, Vector3.zero);
-                    border.SetPosition(2, Vector3.zero);
+                    //border.SetPosition(0, Vector3.zero);
+                    // border.SetPosition(1, Vector3.zero);
+                    //border.SetPosition(2, Vector3.zero);
                 }
             }
         }
